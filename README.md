@@ -20,4 +20,4 @@ tmux plugins (tpm) and zsh plugins (antidote) install themselves on first launch
 - `zsh`: `.zshrc`, `.zprofile`, antidote plugin list
 - `git`: global git identity (GitHub noreply email), gh credential helper
 - `tmux`: tmux config, gitmux, window names with AI agent session titles
-- `ghostty`: Pale Night Hc theme, tab shortcuts (cmd+t/w/1-9, cmd+shift+[ ]) mapped to tmux windows
+- `ghostty`: starts in tmux (session `default`), Pale Night Hc theme, tab shortcuts (cmd+t/w/1-9, cmd+shift+[ ]) mapped to tmux windows

@@ -1,5 +1,8 @@
 theme = Pale Night Hc
 
+# Always start in tmux (attach to the "default" session or create it)
+command = /opt/homebrew/bin/tmux new-session -A -s default
+
 # Tabs are tmux windows: shortcuts send the tmux prefix (ctrl+space = \x00) + key
 keybind = super+t=text:\x00c
 keybind = super+w=text:\x00&
