@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# Window name = nerd-font icon + command, or the session title for AI agents.
+# Usage: window-name <pane_current_command> <window_panes> <pane_pid> <pane_title>
+
+export LC_ALL=en_US.UTF-8
+
+cmd="$1" panes="$2" pid="$3" title="$4"
+plugin="$HOME/.config/tmux/plugins/tmux-nerd-font-window-name/bin/tmux-nerd-font-window-name"
+max_len=30
+
+# Which agent runs in the pane? node/bun wrappers are resolved from the child cmdline.
+agent=""
+case "$cmd" in
+  claude | opencode | pi) agent="$cmd" ;;
+  [0-9]*.[0-9]*.[0-9]*) agent="claude" ;; # native Claude Code binary is named after its version
+  node | bun)
+    args="$(ps -A -o ppid=,args= | awk -v p="$pid" '$1 == p { $1 = ""; print }')"
+    case "$args" in
+      *claude*) agent="claude" ;;
+      *opencode*) agent="opencode" ;;
+      */pi | */pi\ *) agent="pi" ;;
+    esac
+    ;;
+esac
+
+# Session name from the terminal title each agent sets (OSC 0/2 -> #{pane_title})
+name=""
+case "$agent" in
+  claude)
+    # "✳ Topic" when idle, "<spinner> Topic" while working
+    [[ "$title" =~ ^[^[:alnum:][:space:]]+[[:space:]]+(.+)$ ]] && name="${BASH_REMATCH[1]}"
+    [[ "$name" == "Claude Code" ]] && name=""
+    ;;
+  pi)
+    # "π - <session> - <cwd>" or "π - <cwd>" when the session is unnamed
+    [[ "$title" =~ ^π\ -\ (.+)\ -\ [^-]+$ ]] && name="${BASH_REMATCH[1]}"
+    ;;
+  opencode)
+    [[ "$title" =~ ^(OC|opencode)\ [|:-]\ (.+)$ ]] && name="${BASH_REMATCH[2]}"
+    ;;
+esac
+[ -z "$name" ] && name="${agent:-$cmd}"
+((${#name} > max_len)) && name="${name:0:max_len-1}…"
+
+icon=""
+[ -x "$plugin" ] && icon="$("$plugin" "${agent:-$cmd}" "$panes" "$pid" 2>/dev/null)"
+
+echo "${icon:+$icon }$name"

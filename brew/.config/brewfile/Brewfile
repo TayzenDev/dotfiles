@@ -1,0 +1,134 @@
+
+# tap repositories and their packages
+
+tap homebrew/core
+brew antidote
+brew atuin
+brew bat
+brew brotli
+brew btop
+brew ca-certificates
+brew certifi
+brew cffi
+brew curl
+brew dav1d
+brew deno
+brew entr
+brew eza
+brew fd
+brew ffmpeg
+brew fzf
+brew gettext
+brew ggml
+brew gh
+brew giflib
+brew gitmux
+brew gnu-sed
+brew htop
+brew jemalloc
+brew jpeg-turbo
+brew jq
+brew json-c
+brew lame
+brew lazydocker
+brew lazygit
+brew lftp
+brew libevent
+brew libgit2
+brew libidn2
+brew liblinear
+brew libnghttp2
+brew libnghttp3
+brew libngtcp2
+brew libomp
+brew libpng
+brew libpsl
+brew libssh2
+brew libtiff
+brew libtommath
+brew libunistring
+brew libuv
+brew libvmaf
+brew libvpx
+brew little-cms2
+brew llama.cpp
+brew llhttp
+brew lpeg
+brew lua
+brew luajit
+brew luv
+brew lz4
+brew mpdecimal
+brew mpg123
+brew ncurses
+brew neovim
+brew nmap
+brew oniguruma
+brew openssl@3
+brew openssl@4
+brew opus
+brew pcre2
+brew prettyping
+brew pycparser
+brew python@3.15
+brew readline
+brew ripgrep
+brew scc
+brew sdl2-compat
+brew sdl3
+brew sesh
+brew sqlite
+brew starship
+brew stow
+brew svt-av1
+brew tailspin
+brew tcl-tk
+brew thefuck
+brew tlrc
+brew tmux
+brew tpm
+brew tree
+brew tree-sitter
+brew unibilium
+brew utf8proc
+brew uv
+brew watch
+brew webp
+brew wget
+brew x264
+brew x265
+brew xz
+brew yarn
+brew yazi
+brew yq
+brew yt-dlp
+brew zlib
+brew zoxide
+brew zstd
+
+tap homebrew/cask
+cask bruno
+cask claude
+cask claude-code
+cask discord
+cask ghostty
+cask lm-studio
+cask orbstack
+cask raycast
+cask visual-studio-code
+cask vlc
+
+tap joshmedeski/sesh
+
+tap pomdtr/tap
+
+tap rcmdnk/file
+brew brew-file
+
+# App Store applications
+appstore 1136220934 Infuse (8.5.9)
+appstore 409183694 Keynote (14.5)
+appstore 409203825 Numbers (14.5)
+appstore 409201541 Pages (14.5)
+appstore 1444636541 Photomator (3.4.15)
+appstore 1289583905 Pixelmator Pro (3.8)

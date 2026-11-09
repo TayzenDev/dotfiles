@@ -1,0 +1,21 @@
+config:
+  fallback-icon: "?" # show when no definition is found
+  multi-pane-icon: "" # show when window has multiple panes (blank by default)
+  show-name: false # the name is added by scripts/window-name (agent session titles)
+  icon-position: "left" # show the icon to the "left" or "right" of the window name (defaults to left)
+  sem-version-icon: "✳" # native Claude Code installs report their version as the command
+
+icons:
+  zsh: "" # overwrite with your own symbol (Nerd Font icon, emoji, whatever!)
+  claude: "✳"
+  opencode: "󰅩"
+  pi: "󰏿"
+
+# pi / claude installed through npm run as `node`
+icons-regex:
+  node.*/pi( |$): "󰏿"
+  node.*claude: "✳"
+
+names-regex:
+  node.*/pi( |$): pi
+  node.*claude: claude
