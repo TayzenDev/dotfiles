@@ -17,6 +17,9 @@ SAVEHIST=10000
 setopt hist_ignore_dups hist_ignore_space share_history extended_history hist_fcntl_lock
 
 # Plugins (list in ~/.zsh_plugins.txt)
+# oh-my-zsh plugins (e.g. thefuck) cache into $ZSH_CACHE_DIR
+export ZSH_CACHE_DIR="$HOME/.cache/zsh"
+[[ -d $ZSH_CACHE_DIR ]] || mkdir -p "$ZSH_CACHE_DIR"
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
