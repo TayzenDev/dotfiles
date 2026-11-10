@@ -10,6 +10,10 @@ export PATH="$PATH:/Users/benjamin/.cache/lm-studio/bin"
 export PATH="$HOME/.deno/bin:$PATH"
 export EDITOR="nvim"
 
+# Android SDK (brew android-commandlinetools)
+export ANDROID_HOME=/opt/homebrew/share/android-commandlinetools
+export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+
 # History (atuin handles search, this keeps $HISTFILE sane)
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
