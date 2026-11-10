@@ -20,6 +20,9 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt hist_ignore_dups hist_ignore_space share_history extended_history hist_fcntl_lock
 
+# Emacs keybindings (zsh picks vi mode because EDITOR=nvim); before plugins bind keys
+bindkey -e
+
 # Plugins (list in ~/.zsh_plugins.txt)
 # oh-my-zsh plugins (e.g. thefuck) cache into $ZSH_CACHE_DIR
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
