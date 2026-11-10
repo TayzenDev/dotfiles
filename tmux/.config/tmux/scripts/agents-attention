@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Other sessions with an agent waiting for input (💬) or done (✅), from workmux hooks.
+# Usage: agents-attention <current_session>
+
+export LC_ALL=en_US.UTF-8
+
+tmux list-windows -a -F '#{session_name}	#{@workmux_status}' |
+  awk -F '\t' -v cur="$1" '
+    ($2 == "💬" || $2 == "✅") && $1 != cur && !seen[$1 $2]++ { out = out " " $2 $1 }
+    END { if (out) print substr(out, 2) }
+  '

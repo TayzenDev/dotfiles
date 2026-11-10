@@ -1,0 +1,8 @@
+# Built-in picker (tmux prefix + T), default keybindings
+[tui]
+show_icons = true
+show_windows = true
+preview = true
+# Agent windows: workmux status + session title from the terminal title ("✳ Topic").
+# #() jobs don't run in tmux list-windows, so @window-name can't be reused here.
+window_name_format = '#{?#{@workmux_status},#{@workmux_status} ,}#{?#{m/r:^[^ a-zA-Z0-9]+ ,#{pane_title}},#{=/20/…;s/^[^ a-zA-Z0-9]+ //:pane_title},#{window_name}}'

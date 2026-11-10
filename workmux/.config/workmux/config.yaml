@@ -1,0 +1,5 @@
+# Only used for agent status tracking (hooks) and the dashboard; sessions come from sesh.
+# tmux.conf renders #{@workmux_status} itself, so don't let workmux rewrite
+# window-status-format in every session.
+status_format: false
+nerdfont: true
