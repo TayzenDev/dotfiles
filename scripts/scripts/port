@@ -1,0 +1,20 @@
+#!/bin/zsh
+# port: list listening TCP ports. port <n>: show what listens on it and offer to kill it.
+if (( ! $# )); then
+  lsof -nP -iTCP -sTCP:LISTEN
+  exit
+fi
+pids=(${(f)"$(lsof -t -nP -iTCP:$1 -sTCP:LISTEN)"})
+if (( ! $#pids )); then
+  print "Nothing listens on port $1"
+  exit 1
+fi
+lsof -nP -iTCP:$1 -sTCP:LISTEN
+read -q "?Kill ${(j:, :)pids}? [y/N] " || { print; exit }
+print
+kill $pids
+sleep 1
+for p in $pids; do
+  kill -0 $p 2>/dev/null && print "$p still running, try: kill -9 $p"
+done
+exit 0

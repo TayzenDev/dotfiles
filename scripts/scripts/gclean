@@ -1,0 +1,43 @@
+#!/bin/zsh
+# Delete local branches merged into the default branch or whose remote branch is gone
+# (squash merges), with the worktrees checked out on them. Asks before deleting.
+set -e
+git rev-parse --git-dir >/dev/null
+git fetch --prune --quiet
+git worktree prune
+
+base=$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null || print origin/main)
+keep=(${base#origin/} $(git branch --show-current))
+
+# Branch -> worktree path, skipping the main worktree (listed first)
+typeset -A worktree
+first=1
+git worktree list --porcelain | while read -r key value; do
+  case $key in
+    worktree) wt=$value ;;
+    branch) (( first )) && keep+=(${value#refs/heads/}) || worktree[${value#refs/heads/}]=$wt; first=0 ;;
+  esac
+done
+
+merged=(${(f)"$(git branch --merged $base --format='%(refname:short)')"})
+gone=(${(f)"$(git for-each-ref refs/heads --format='%(refname:short) %(upstream:track)' | awk '$2 == "[gone]" { print $1 }')"})
+branches=(${(u)${merged:|keep}} ${(u)${gone:|keep}})
+branches=(${(u)branches})
+
+if (( ! $#branches )); then
+  print "Nothing to clean"
+  exit
+fi
+for b in $branches; do
+  print "  $b${worktree[$b]:+  (worktree ${worktree[$b]/#$HOME/~})}"
+done
+read -q "?Delete these branches? [y/N] " || { print; exit 1 }
+print
+
+for b in $branches; do
+  if [[ -n ${worktree[$b]} ]] && ! git worktree remove "${worktree[$b]}"; then
+    print "skipped $b: worktree has changes"
+    continue
+  fi
+  git branch -D $b
+done
