@@ -114,6 +114,7 @@ brew tree-sitter
 brew tree-sitter-cli
 brew unibilium
 brew utf8proc
+brew utftex
 brew uv
 brew uvwasi
 brew watch
