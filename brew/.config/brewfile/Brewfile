@@ -12,6 +12,7 @@ brew ca-certificates
 brew cairo
 brew certifi
 brew cffi
+brew cowsay
 brew curl
 brew dav1d
 brew deno

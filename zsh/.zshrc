@@ -44,3 +44,6 @@ alias zz="z -"
 eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
+
+# Reminder of a ~/scripts command in every new shell
+tip

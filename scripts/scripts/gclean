@@ -1,4 +1,6 @@
 #!/bin/zsh
+# tip: gclean  delete merged / squash-merged branches
+# tip:         and their worktrees (asks first)
 # Delete local branches merged into the default branch or whose remote branch is gone
 # (squash merges), with the worktrees checked out on them. Asks before deleting.
 set -e

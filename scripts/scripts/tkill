@@ -1,4 +1,6 @@
 #!/bin/zsh
+# tip: tkill [session...]  kill tmux sessions
+# tip: tkill  pick several in fzf (tab to select)
 # Kill tmux sessions: the ones given as arguments, else picked in fzf (tab to select several).
 # Inside tmux, detach-on-destroy off moves the client to another session.
 if (( $# )); then

@@ -22,5 +22,5 @@ tmux plugins (tpm) and zsh plugins (antidote) install themselves on first launch
 - `tmux`: tmux config, gitmux, window names with AI agent session titles and workmux status, `prefix + a` agents dashboard, `prefix + A` next agent needing you, `prefix + G`/`D` lazygit/lazydocker popups
 - `sesh`: built-in picker (`prefix + T`) with preview and agent windows (status + session title)
 - `workmux`: status tracking only (hooks via `workmux setup --hooks`, Claude plugin `workmux-status`), no worktree workflow
-- `scripts`: personal commands in `~/scripts` (on `PATH` via `.zprofile`): `tm` attaches to the most recent tmux session, else creates `default`; `tkill` kills tmux sessions (args or fzf multi-select); `gclean` deletes merged/gone branches and their worktrees; `port [n]` lists listeners or kills the one on a port
+- `scripts`: personal commands in `~/scripts` (on `PATH` via `.zprofile`): `tm` attaches to the most recent tmux session, else creates `default`; `tkill` kills tmux sessions (args or fzf multi-select); `gclean` deletes merged/gone branches and their worktrees; `port [n]` lists listeners or kills the one on a port; `tip` shows one script's `# tip:` lines through cowsay in every new shell
 - `ghostty`: starts in tmux via `tm`, Pale Night Hc theme, tab shortcuts (cmd+t/w/1-9, cmd+shift+[ ]) mapped to tmux windows

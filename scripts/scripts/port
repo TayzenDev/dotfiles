@@ -1,4 +1,6 @@
 #!/bin/zsh
+# tip: port  list listening TCP ports
+# tip: port <n>  show what uses port n, offer to kill it
 # port: list listening TCP ports. port <n>: show what listens on it and offer to kill it.
 if (( ! $# )); then
   lsof -nP -iTCP -sTCP:LISTEN

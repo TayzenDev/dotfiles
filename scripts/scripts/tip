@@ -1,0 +1,18 @@
+#!/bin/zsh
+# tip: tip  a random reminder of a ~/scripts command (shown in every new shell)
+# Each script describes itself with "# tip: " lines; a random script's lines go to cowsay.
+scripts=(${0:A:h}/*(.N))
+tips=()
+for s in $scripts; do
+  t=$(sed -n 's/^# tip: //p' $s)
+  [[ -n $t ]] && tips+=("$t")
+done
+(( $#tips )) || exit 0
+tip=${tips[RANDOM % ${#tips} + 1]}
+
+cows=(default tux bunny koala moose sheep turtle elephant fox)
+if (( $+commands[cowsay] )); then
+  cowsay -n -f ${cows[RANDOM % ${#cows} + 1]} <<< $tip
+else
+  print -- $tip
+fi
