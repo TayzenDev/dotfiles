@@ -7,7 +7,9 @@ brew atuin
 brew bat
 brew brotli
 brew btop
+brew c-ares
 brew ca-certificates
+brew cairo
 brew certifi
 brew cffi
 brew curl
@@ -17,14 +19,21 @@ brew entr
 brew eza
 brew fd
 brew ffmpeg
+brew fontconfig
+brew freetype
 brew fzf
 brew gettext
 brew ggml
 brew gh
 brew giflib
 brew gitmux
+brew glib
 brew gnu-sed
+brew graphite2
+brew harfbuzz
 brew htop
+brew icu4c@78
+brew icu4c@79
 brew jemalloc
 brew jpeg-turbo
 brew jq
@@ -50,6 +59,12 @@ brew libunistring
 brew libuv
 brew libvmaf
 brew libvpx
+brew libx11
+brew libxau
+brew libxcb
+brew libxdmcp
+brew libxext
+brew libxrender
 brew little-cms2
 brew llama.cpp
 brew llhttp
@@ -58,16 +73,21 @@ brew lua
 brew luajit
 brew luv
 brew lz4
+brew lzo
 brew mpdecimal
 brew mpg123
 brew ncurses
 brew neovim
 brew nmap
+brew node@22
 brew oniguruma
+brew openjdk
+brew openjdk@17
 brew openssl@3
 brew openssl@4
 brew opus
 brew pcre2
+brew pixman
 brew prettyping
 brew pycparser
 brew python@3.15
@@ -77,6 +97,7 @@ brew scc
 brew sdl2-compat
 brew sdl3
 brew sesh
+brew simdjson
 brew sqlite
 brew starship
 brew stow
@@ -89,15 +110,18 @@ brew tmux
 brew tpm
 brew tree
 brew tree-sitter
+brew tree-sitter-cli
 brew unibilium
 brew utf8proc
 brew uv
+brew uvwasi
 brew watch
 brew webp
 brew wget
 brew workmux
 brew x264
 brew x265
+brew xorgproto
 brew xz
 brew yarn
 brew yazi
@@ -108,6 +132,7 @@ brew zoxide
 brew zstd
 
 tap homebrew/cask
+cask android-commandlinetools
 cask bruno
 cask claude
 cask claude-code
@@ -118,8 +143,12 @@ cask orbstack
 cask raycast
 cask visual-studio-code
 cask vlc
+cask zulu@17
 
 tap joshmedeski/sesh
+
+tap mobile-dev-inc/tap
+brew maestro
 
 tap pomdtr/tap
 
