@@ -6,3 +6,32 @@ preview = true
 # Agent windows: workmux status + session title from the terminal title ("✳ Topic").
 # #() jobs don't run in tmux list-windows, so @window-name can't be reused here.
 window_name_format = '#{?#{@workmux_status},#{@workmux_status} ,}#{?#{m/r:^[^ a-zA-Z0-9]+ ,#{pane_title}},#{=/20/…;s/^[^ a-zA-Z0-9]+ //:pane_title},#{window_name}}'
+
+# New sessions: nvim, then a shell and claude in their own windows.
+# [default_session] windows aren't created by sesh, so they come from a catch-all wildcard.
+[default_session]
+startup_command = "nvim"
+
+# Home (zoxide "~") and the "default" session: just a shell
+[[session]]
+name = "default"
+path = "~"
+disable_startup_command = true
+
+# First matching wildcard wins: home before the catch-all
+[[wildcard]]
+pattern = "~"
+disable_startup_command = true
+
+[[wildcard]]
+pattern = "/**"
+windows = ["shell", "claude"]
+
+# Named windows have automatic-rename off; turn it back on for the status bar icons/titles
+[[window]]
+name = "shell"
+startup_script = "tmux set-window-option automatic-rename on && clear"
+
+[[window]]
+name = "claude"
+startup_script = "tmux set-window-option automatic-rename on && claude"

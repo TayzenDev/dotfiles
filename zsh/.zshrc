@@ -39,7 +39,6 @@ alias cat="bat"
 alias grep="rg"
 alias cd="z"
 alias zz="z -"
-alias tm="tmux attach -t default || tmux new -s default"
 
 # Tools
 eval "$(starship init zsh)"

@@ -1,0 +1,5 @@
+#!/bin/sh
+# Attach to the most recent tmux session, else create "default".
+# Also Ghostty's startup command, which runs without the brew PATH.
+PATH="/opt/homebrew/bin:$PATH"
+tmux attach || exec tmux new-session -s default
