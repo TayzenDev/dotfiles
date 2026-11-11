@@ -24,4 +24,4 @@ tmux plugins (tpm) and zsh plugins (antidote) install themselves on first launch
 - `workmux`: status tracking only (hooks via `workmux setup --hooks`, Claude plugin `workmux-status`), no worktree workflow
 - `scripts`: personal commands in `~/scripts` (on `PATH` via `.zshenv`): `tm` attaches to the most recent tmux session, else creates `default`; `tkill` kills tmux sessions (args or fzf multi-select); `gclean` deletes merged/gone branches and their worktrees; `port [n]` lists listeners or kills the one on a port; `tip` shows one script's `# tip:` lines through cowsay in every new shell
 - `ghostty`: starts in tmux via `tm`, Pale Night Hc theme, tab shortcuts (cmd+t/w/1-9, cmd+shift+[ ]) mapped to tmux windows
-- `claude`: Claude Code user settings (`~/.claude/settings.json`: dark theme, workmux marketplace and `workmux-status` plugin)
+- `claude`: Claude Code user settings (`~/.claude/settings.json`: dark theme, workmux marketplace and `workmux-status` plugin) and status line script (`statusline.sh`: model, context fill, 5h and weekly subscription usage with reset times)

@@ -10,5 +10,9 @@
   "theme": "dark",
   "enabledPlugins": {
     "workmux-status@workmux": true
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
   }
 }
