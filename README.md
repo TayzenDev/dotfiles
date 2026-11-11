@@ -8,7 +8,7 @@ Managed with [GNU Stow](https://www.gnu.org/software/stow/): each top-level fold
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install stow rcmdnk/file/brew-file
 git clone <this repo> ~/dotfiles && cd ~/dotfiles
-stow brew zsh tmux git ghostty sesh workmux scripts
+stow brew zsh tmux git ghostty sesh workmux scripts claude
 brew file install
 ```
 
@@ -24,3 +24,4 @@ tmux plugins (tpm) and zsh plugins (antidote) install themselves on first launch
 - `workmux`: status tracking only (hooks via `workmux setup --hooks`, Claude plugin `workmux-status`), no worktree workflow
 - `scripts`: personal commands in `~/scripts` (on `PATH` via `.zshenv`): `tm` attaches to the most recent tmux session, else creates `default`; `tkill` kills tmux sessions (args or fzf multi-select); `gclean` deletes merged/gone branches and their worktrees; `port [n]` lists listeners or kills the one on a port; `tip` shows one script's `# tip:` lines through cowsay in every new shell
 - `ghostty`: starts in tmux via `tm`, Pale Night Hc theme, tab shortcuts (cmd+t/w/1-9, cmd+shift+[ ]) mapped to tmux windows
+- `claude`: Claude Code user settings (`~/.claude/settings.json`: dark theme, workmux marketplace and `workmux-status` plugin)

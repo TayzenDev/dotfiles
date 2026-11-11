@@ -1,0 +1,14 @@
+{
+  "extraKnownMarketplaces": {
+    "workmux": {
+      "source": {
+        "source": "github",
+        "repo": "raine/workmux"
+      }
+    }
+  },
+  "theme": "dark",
+  "enabledPlugins": {
+    "workmux-status@workmux": true
+  }
+}
