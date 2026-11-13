@@ -5,6 +5,7 @@ command = shell:~/scripts/tm
 
 # Tabs are tmux windows: shortcuts send the tmux prefix (ctrl+space = \x00) + key
 keybind = super+t=text:\x00c
+keybind = super+shift+t=text:\x00C
 keybind = super+w=text:\x00&
 keybind = super+shift+]=text:\x00n
 keybind = super+shift+[=text:\x00p
