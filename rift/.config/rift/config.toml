@@ -7,7 +7,7 @@
 # - animation_duration: seconds per animation (>= 0.0, typical 0.15–0.35)
 # - animation_fps: frames per second (0.0 = display refresh rate). 60–120 recommended.
 #   ease_in_circ, ease_out_circ, ease_in_out_circ
-animate = false
+animate = true
 animation_duration = 0.3
 animation_fps = 100.0
 
@@ -145,11 +145,11 @@ focus_navigation_style = "niri"
 
 [settings.layout.scrolling.gestures]
 # Enable horizontal scroll gestures to switch columns
-enabled = false
+enabled = true
 # Invert horizontal direction (swap left/right)
-invert_horizontal = false
+invert_horizontal = true
 # Number of fingers required for gesture
-fingers = 3
+fingers = 4
 # If true, scrolling past the end of the strip will trigger a workspace switch
 #
 # This enables a seemingly endless scroll experience through each workspace's
@@ -160,7 +160,7 @@ propagate_to_workspace_swipe = false
 # How much of each stacked window sticks out (in pixels)
 # Set to 0.0 to have them directly on top of each other.
 # Recommended: 30-50 for clear edges while keeping focus visible.
-stack_offset = 40.0
+stack_offset = 20.0
 
 # Default stacking orientation when creating a new stack.
 # Options:
@@ -179,14 +179,14 @@ default_orientation = "perpendicular"
 #   Use the display's UUID as the key (for example, from system profiler or via rift CLI).
 
 [settings.layout.gaps.outer]
-top = 0
-left = 0
-bottom = 0
-right = 0
+top = 8
+left = 8
+bottom = 8
+right = 8
 
 [settings.layout.gaps.inner]
-horizontal = 0
-vertical = 0
+horizontal = 8
+vertical = 8
 
 # Example per-display overrides:
 # Replace the quoted key with your display's UUID. Only specify values you want to override.
@@ -206,27 +206,27 @@ vertical = 0
 # Leave false to keep Overview open until a click or Enter.
 activate_on_hotkey_release = false
 # enable a niri style overview
-enabled = false
+enabled = true
 # Include empty workspaces as navigation and drag destinations.
 show_empty_workspaces = true
 
 [settings.ui.menu_bar]
 # enable menu bar workspace indicators
-enabled = false
+enabled = true
 # if enabled, it will show all workspaces including empty ones. disabled because this
 # tends to take up too much room in the menubar and then is auto hidden by macos
 show_empty = false
 # show the binding mode name beside workspaces when a non-default mode is active
 show_binding_mode = true
 # choose between drawing every workspace or only the active workspace on each display
-mode = "all"
+mode = "active"
 # when showing workspaces as labels ("index" or "name"), choose which label to render
 active_label = "index"
 # when displaying workspaces, choose whether to draw the layout preview or a set of labels
 # options are "layout" or "label" (i3-style)
-display_style = "layout"
+display_style = "label"
 # when display_style = "label", add brackets (e.g. "[2]") when a window is in fullscreen
-show_fullscreen_indicator = false
+show_fullscreen_indicator = true
 # .ron files in this folder appear under Layout Files in the menu bar
 layout_folder = "~/.config/rift/layouts"
 
@@ -258,13 +258,13 @@ invert_horizontal_swipe = false
 # Accepts normalized fraction (0..1) or percent (0..100). Example: 0.4 or 40.0
 swipe_vertical_tolerance = 0.4
 # Skip empty workspaces when swiping
-skip_empty = true
+skip_empty = false
 # Number of fingers required for swipe
 fingers = 3
 # Normalized horizontal distance (0..1) to trigger swipe for NSTouch-based detection
 distance_pct = 0.08
 # Haptic feedback on swipe
-haptics_enabled = true
+haptics_enabled = false
 
 # Mouse move and tiled-window drop behavior
 [settings.drag_drop]
@@ -557,18 +557,20 @@ comb1 = "Alt + Shift"
 "Alt + Tab" = "switch_to_last_workspace"
 "comb1 + Tab" = { move_workspace_to_display = { selector = "right", wrap_around = true } }
 
-# commands to change the layout engine of the active workspace
-# "Alt + Ctrl + 1" = { set_workspace_layout = { mode = "traditional" } }
-# "Alt + Ctrl + 2" = { set_workspace_layout = { mode = "bsp" } }
-# "Alt + Ctrl + 3" = { set_workspace_layout = { mode = "master_stack" } }
-# "Alt + Ctrl + 4" = { set_workspace_layout = { mode = "scrolling" } }
+# commands to change the layout engine of the active workspace (digit row 1-5 on AZERTY)
+"Alt + Ctrl + &" = { set_workspace_layout = { mode = "traditional" } }
+"Alt + Ctrl + é" = { set_workspace_layout = { mode = "bsp" } }
+"Alt + Ctrl + \"" = { set_workspace_layout = { mode = "master_stack" } }
+"Alt + Ctrl + '" = { set_workspace_layout = { mode = "scrolling" } }
+"Alt + Ctrl + (" = { set_workspace_layout = { mode = "stack" } }
 
 "Alt + Shift + Left" = { join_window = "left" }
 "Alt + Shift + Right" = { join_window = "right" }
 "Alt + Shift + Up" = { join_window = "up" }
 "Alt + Shift + Down" = { join_window = "down" }
 "Alt + Comma" = "toggle_stack"
-"Alt + Slash" = "toggle_orientation"
+# "!" sits where "/" is on QWERTY; Slash has no unshifted key on AZERTY and binds the keypad
+"Alt + !" = "toggle_orientation"
 "Alt + Ctrl + E" = "unjoin_windows"
 
 "Alt + Shift + Space" = "toggle_window_floating"
@@ -608,9 +610,9 @@ comb1 = "Alt + Shift"
 # "Alt + Ctrl + Shift + Right" = { move_workspace_to_display = { selector = "right", wrap_around = true } }
 
 # if mission control is enabled
-# "Alt + Ctrl + M" = "show_mission_control_all"
+"Alt + M" = "show_mission_control_all"
 
-"Alt + Enter" = { "exec" = ["/bin/bash", "-c", "open -a \"/System/Applications/Utilities/Terminal.app\""] }
+"Alt + Enter" = { exec = ["/bin/sh", "-c", "~/scripts/tdefault"] }
 
 "Alt + Shift + D" = "debug" # prints layout tree
 

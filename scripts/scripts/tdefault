@@ -1,0 +1,11 @@
+#!/bin/sh
+# tip: tdefault  open a Ghostty window on the "default" tmux session (alt+enter)
+# Open a new Ghostty window attached to the "default" tmux session, created if missing.
+# Bound to alt+enter in rift, which runs it without the brew PATH.
+cmd="/opt/homebrew/bin/tmux new-session -A -s default"
+if pgrep -xq ghostty; then
+  osascript -e "tell application \"Ghostty\" to new window with configuration {command:\"$cmd\"}" >/dev/null
+else
+  # Not running: launch with the command so the first window skips ~/scripts/tm
+  open -a Ghostty --args --command="$cmd"
+fi
