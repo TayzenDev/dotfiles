@@ -1,4 +1,11 @@
 {
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "workmux-status@workmux": true
+  },
   "extraKnownMarketplaces": {
     "workmux": {
       "source": {
@@ -7,14 +14,12 @@
       }
     }
   },
+  "language": "French",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "theme": "dark",
-  "enabledPlugins": {
-    "workmux-status@workmux": true
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh"
-  },
   "hooks": {
     "UserPromptSubmit": [
       {
