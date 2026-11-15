@@ -10,6 +10,7 @@ brew install stow rcmdnk/file/brew-file
 git clone <this repo> ~/dotfiles && cd ~/dotfiles
 stow brew zsh tmux git ghostty sesh workmux scripts claude
 brew file install
+gh auth login && gh extension install dlvhdr/gh-dash
 ```
 
 tmux plugins (tpm) and zsh plugins (antidote) install themselves on first launch.
@@ -19,7 +20,7 @@ tmux plugins (tpm) and zsh plugins (antidote) install themselves on first launch
 - `brew`: Brewfile used by `brew file` (updated automatically on `brew install`)
 - `zsh`: `.zshrc`, `.zprofile`, `.zshenv`, antidote plugin list
 - `git`: global git identity (GitHub noreply email), gh credential helper
-- `tmux`: tmux config, gitmux, window names with AI agent session titles and workmux status, `prefix + a` agents dashboard, `prefix + A` next agent needing you, `prefix + G`/`D` lazygit/lazydocker popups
+- `tmux`: tmux config, gitmux, window names with AI agent session titles and workmux status, `prefix + a` agents dashboard, `prefix + A` next agent needing you, `prefix + G`/`D`/`F`/`P`/`H` lazygit/lazydocker/yazi/gh dash/btop popups
 - `sesh`: built-in picker (`prefix + T`) with preview and agent windows (status + session title)
 - `workmux`: status tracking only (hooks via `workmux setup --hooks`, Claude plugin `workmux-status`); worktrees are created by the `/wt` skill
 - `scripts`: personal commands in `~/scripts` (on `PATH` via `.zshenv`): `tm` attaches to the most recent tmux session, else creates `default`; `tkill` kills tmux sessions (args or fzf multi-select); `gclean` deletes merged/gone branches and their worktrees; `port [n]` lists listeners or kills the one on a port; `tip` shows one script's `# tip:` lines through cowsay in every new shell
