@@ -147,6 +147,9 @@ cask visual-studio-code
 cask vlc
 cask zulu@17
 
+tap acsandmann/tap
+brew rift
+
 tap joshmedeski/sesh
 
 tap mobile-dev-inc/tap
