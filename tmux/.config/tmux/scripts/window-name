@@ -6,7 +6,7 @@ export LC_ALL=en_US.UTF-8
 
 cmd="$1" panes="$2" pid="$3" title="$4"
 plugin="$HOME/.config/tmux/plugins/tmux-nerd-font-window-name/bin/tmux-nerd-font-window-name"
-max_len=30
+max_len=20
 
 # Which agent runs in the pane? node/bun wrappers are resolved from the child cmdline.
 agent=""
