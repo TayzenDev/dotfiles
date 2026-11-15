@@ -16,7 +16,7 @@ animation_fps = 100.0
 #   and you must toggle activation via a keybind (toggle_space_activated).
 # - If false, spaces are managed by default and you can disable specific ones.
 # Default is true; uncomment to change.
-#default_disable = false
+default_disable = false
 
 # Mouse/Focus behavior
 # - focus_follows_mouse: moving the mouse into a window focuses it
@@ -248,7 +248,7 @@ spacing = 0.0
 # Trackpad gestures
 [settings.gestures]
 # Enable horizontal swipes to switch virtual workspaces
-enabled = false
+enabled = true
 # If true, Rift consumes horizontal swipes handled by its trackpad gesture handlers
 # so macOS and the foreground app do not also handle them
 consume_dock_swipe = true
@@ -306,7 +306,7 @@ mode = "per_display"
 #   workspace instead of wrapping around
 # - reapply_app_rules_on_title_change: if true, app rules are re-evaluated when a window's title changes
 enabled = true
-default_workspace_count = 4
+default_workspace_count = 10
 auto_assign_windows = true
 preserve_focus_per_workspace = true
 workspace_auto_back_and_forth = false
@@ -340,8 +340,10 @@ workspace_rules = []
 # remaining workspaces are named "Workspace X".
 # Do not provide more names than default_workspace_count.
 workspace_names = [
-	"first",
-	"second"
+	"browser",
+	"dev",
+	"com",
+	"calendar"
 ]
 
 # App rules (automatic assignment)
@@ -419,7 +421,22 @@ workspace_names = [
 #       ]
 #
 # By default there are no app rules; add or uncomment rules below as needed.
-app_rules = []
+app_rules = [
+	{ app_id = "app.zen-browser.zen", workspace = "browser" },
+	{ app_id = "com.brave.Browser", workspace = "browser" },
+	{ app_id = "com.google.Chrome", workspace = "browser" },
+	{ app_id = "org.mozilla.firefox", workspace = "browser" },
+	{ app_id = "com.apple.Safari", workspace = "browser" },
+	{ app_id = "com.mitchellh.ghostty", workspace = "dev" },
+	{ app_id = "com.microsoft.VSCode", workspace = "dev" },
+	{ app_id = "com.usebruno.app", workspace = "dev" },
+	{ app_id = "com.tinyspeck.slackmacgap", workspace = "com" },
+	{ app_id = "com.hnc.Discord", workspace = "com" },
+	{ app_id = "org.whispersystems.signal-desktop", workspace = "com" },
+	{ app_id = "com.apple.iCal", workspace = "calendar" },
+	# The Android emulator resizes itself to keep its aspect ratio and flickers when tiled
+	{ app_name = "qemu-system", floating = true },
+]
 
 # Modifier combinations that can be reused in key bindings
 # Define common modifier combinations to avoid repetition.
@@ -509,17 +526,36 @@ comb1 = "Alt + Shift"
 "comb1 + K" = { move_node = "up" }
 "comb1 + L" = { move_node = "right" }
 
-"Alt + 0" = { switch_to_workspace = 0 }
-"Alt + 1" = { switch_to_workspace = 1 }
-"Alt + 2" = { switch_to_workspace = 2 }
-"Alt + 3" = { switch_to_workspace = 3 }
+# Digit row keys are named after their unshifted French-PC (AZERTY) character: with a bare
+# digit, rift binds the numeric keypad key, which is the only one typing that digit unshifted.
+"Alt + &" = { switch_to_workspace = 0 }
+"Alt + é" = { switch_to_workspace = 1 }
+"Alt + \"" = { switch_to_workspace = 2 }
+"Alt + '" = { switch_to_workspace = 3 }
+"Alt + (" = { switch_to_workspace = 4 }
+"Alt + -" = { switch_to_workspace = 5 }
+"Alt + è" = { switch_to_workspace = 6 }
+"Alt + _" = { switch_to_workspace = 7 }
+"Alt + ç" = { switch_to_workspace = 8 }
+"Alt + à" = { switch_to_workspace = 9 }
 
-"comb1 + 0" = { move_window_to_workspace = 0 }
-"comb1 + 1" = { move_window_to_workspace = 1 }
-"comb1 + 2" = { move_window_to_workspace = 2 }
-"comb1 + 3" = { move_window_to_workspace = 3 }
+"Alt + B" = { switch_to_workspace = 0 } # browser
+"Alt + D" = { switch_to_workspace = 1 } # dev
+"Alt + C" = { switch_to_workspace = 2 } # com
+
+"comb1 + &" = { move_window_to_workspace = 0 }
+"comb1 + é" = { move_window_to_workspace = 1 }
+"comb1 + \"" = { move_window_to_workspace = 2 }
+"comb1 + '" = { move_window_to_workspace = 3 }
+"comb1 + (" = { move_window_to_workspace = 4 }
+"comb1 + -" = { move_window_to_workspace = 5 }
+"comb1 + è" = { move_window_to_workspace = 6 }
+"comb1 + _" = { move_window_to_workspace = 7 }
+"comb1 + ç" = { move_window_to_workspace = 8 }
+"comb1 + à" = { move_window_to_workspace = 9 }
 
 "Alt + Tab" = "switch_to_last_workspace"
+"comb1 + Tab" = { move_workspace_to_display = { selector = "right", wrap_around = true } }
 
 # commands to change the layout engine of the active workspace
 # "Alt + Ctrl + 1" = { set_workspace_layout = { mode = "traditional" } }
@@ -545,8 +581,9 @@ comb1 = "Alt + Shift"
 "comb1 + Ctrl + Space" = "toggle_focus_floating" # briefly bring focus to floating window
 
 # smartly resize windows
-"Alt + Shift + Equal" = "resize_window_grow"
-"Alt + Shift + Minus" = "resize_window_shrink"
+# On AZERTY, Minus is the 6 key, already used by Alt + Shift to move windows to workspace 6
+"Alt + Ctrl + Equal" = "resize_window_grow"
+"Alt + Ctrl + Minus" = "resize_window_shrink"
 # Example vertical bindings for windows stacked in a scrolling-layout column:
 # "Alt + Ctrl + Equal" = { resize_window_grow = "vertical" }
 # "Alt + Ctrl + Minus" = { resize_window_shrink = "vertical" }
