@@ -565,13 +565,13 @@ comb1 = "Alt + Shift"
 "Alt + Ctrl + '" = { set_workspace_layout = { mode = "scrolling" } }
 "Alt + Ctrl + (" = { set_workspace_layout = { mode = "stack" } }
 
-"Alt + Shift + Left" = { join_window = "left" }
-"Alt + Shift + Right" = { join_window = "right" }
-"Alt + Shift + Up" = { join_window = "up" }
-"Alt + Shift + Down" = { join_window = "down" }
+# Not Alt + Shift + arrows: macOS uses them to select word by word
+"Alt + Ctrl + H" = { join_window = "left" }
+"Alt + Ctrl + J" = { join_window = "down" }
+"Alt + Ctrl + K" = { join_window = "up" }
+"Alt + Ctrl + L" = { join_window = "right" }
 "Alt + Comma" = "toggle_stack"
-# "!" sits where "/" is on QWERTY; Slash has no unshifted key on AZERTY and binds the keypad
-"Alt + !" = "toggle_orientation"
+"Alt + ;" = "toggle_orientation"
 "Alt + Ctrl + E" = "unjoin_windows"
 
 "Alt + Shift + Space" = "toggle_window_floating"
