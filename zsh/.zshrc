@@ -3,10 +3,6 @@ if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
 fi
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/benjamin/.cache/lm-studio/bin"
-# End of LM Studio CLI section
-
 export PATH="$HOME/.deno/bin:$PATH"
 export EDITOR="nvim"
 

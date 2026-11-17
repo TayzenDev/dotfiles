@@ -2,6 +2,8 @@
 
 Managed with [GNU Stow](https://www.gnu.org/software/stow/): each top-level folder is a package mirroring `$HOME`.
 
+macOS only: paths assume Homebrew in `/opt/homebrew`, and some packages (`rift`, `tdefault`, Brewfile casks) are macOS tools.
+
 ## Setup on a new Mac
 
 ```sh
