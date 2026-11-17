@@ -9,3 +9,9 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+# Strip machine-specific blocks from files marked in a repo's .gitattributes.
+# required: if the filter fails (invalid JSON), git refuses the add instead of storing the raw file
+[filter "claude-automode"]
+	clean = ~/.config/git/filters/claude-automode clean
+	smudge = ~/.config/git/filters/claude-automode smudge
+	required = true

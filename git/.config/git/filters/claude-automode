@@ -1,0 +1,28 @@
+#!/bin/sh
+# Git filter for claude/.claude/settings.json (see .gitattributes): keeps the autoMode
+# block, which describes private projects to Claude Code's auto mode, out of the public repo.
+# clean: save the block to ~/.claude/automode.local.json, then strip it from what git stores
+# smudge: put the saved block back when git rewrites the file (pull, checkout, restore)
+PATH="/opt/homebrew/bin:$PATH"
+backup="$HOME/.claude/automode.local.json"
+input=$(cat)
+case $1 in
+  clean)
+    block=$(printf '%s\n' "$input" | jq '.autoMode // empty') || exit 1
+    if [ -n "$block" ]; then
+      printf '%s\n' "$block" > "$backup.tmp" && mv "$backup.tmp" "$backup"
+    fi
+    printf '%s\n' "$input" | jq 'del(.autoMode)'
+    ;;
+  smudge)
+    if [ -s "$backup" ]; then
+      printf '%s\n' "$input" | jq --slurpfile block "$backup" '. + {autoMode: $block[0]}'
+    else
+      printf '%s\n' "$input"
+    fi
+    ;;
+  *)
+    echo "usage: $0 clean|smudge" >&2
+    exit 2
+    ;;
+esac

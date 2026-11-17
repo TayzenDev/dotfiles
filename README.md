@@ -19,7 +19,7 @@ tmux plugins (tpm) and zsh plugins (antidote) install themselves on first launch
 
 - `brew`: Brewfile used by `brew file` (updated automatically on `brew install`)
 - `zsh`: `.zshrc`, `.zprofile`, `.zshenv`, antidote plugin list
-- `git`: global git identity (GitHub noreply email), gh credential helper
+- `git`: global git identity (GitHub noreply email), gh credential helper, `claude-automode` filter keeping the `autoMode` block of `~/.claude/settings.json` out of the repo (saved in `~/.claude/automode.local.json` and put back on checkout)
 - `tmux`: tmux config, gitmux, window names with AI agent session titles and workmux status, `prefix + a` agents dashboard, `prefix + A` next agent needing you, `prefix + G`/`D`/`F`/`P`/`H` lazygit/lazydocker/yazi/gh dash/btop popups
 - `sesh`: built-in picker (`prefix + T`) with preview and agent windows (status + session title)
 - `workmux`: status tracking only (hooks via `workmux setup --hooks`, Claude plugin `workmux-status`); worktrees are created by the `/wt` skill
