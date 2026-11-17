@@ -526,33 +526,34 @@ comb1 = "Alt + Shift"
 "comb1 + K" = { move_node = "up" }
 "comb1 + L" = { move_node = "right" }
 
+# Ctrl rather than Alt: Alt + digit row types characters such as { [ on AZERTY.
 # Digit row keys are named after their unshifted French-PC (AZERTY) character: with a bare
 # digit, rift binds the numeric keypad key, which is the only one typing that digit unshifted.
-"Alt + &" = { switch_to_workspace = 0 }
-"Alt + é" = { switch_to_workspace = 1 }
-"Alt + \"" = { switch_to_workspace = 2 }
-"Alt + '" = { switch_to_workspace = 3 }
-"Alt + (" = { switch_to_workspace = 4 }
-"Alt + -" = { switch_to_workspace = 5 }
-"Alt + è" = { switch_to_workspace = 6 }
-"Alt + _" = { switch_to_workspace = 7 }
-"Alt + ç" = { switch_to_workspace = 8 }
-"Alt + à" = { switch_to_workspace = 9 }
+"Ctrl + &" = { switch_to_workspace = 0 }
+"Ctrl + é" = { switch_to_workspace = 1 }
+"Ctrl + \"" = { switch_to_workspace = 2 }
+"Ctrl + '" = { switch_to_workspace = 3 }
+"Ctrl + (" = { switch_to_workspace = 4 }
+"Ctrl + -" = { switch_to_workspace = 5 }
+"Ctrl + è" = { switch_to_workspace = 6 }
+"Ctrl + _" = { switch_to_workspace = 7 }
+"Ctrl + ç" = { switch_to_workspace = 8 }
+"Ctrl + à" = { switch_to_workspace = 9 }
 
 "Alt + B" = { switch_to_workspace = 0 } # browser
 "Alt + D" = { switch_to_workspace = 1 } # dev
 "Alt + C" = { switch_to_workspace = 2 } # com
 
-"comb1 + &" = { move_window_to_workspace = 0 }
-"comb1 + é" = { move_window_to_workspace = 1 }
-"comb1 + \"" = { move_window_to_workspace = 2 }
-"comb1 + '" = { move_window_to_workspace = 3 }
-"comb1 + (" = { move_window_to_workspace = 4 }
-"comb1 + -" = { move_window_to_workspace = 5 }
-"comb1 + è" = { move_window_to_workspace = 6 }
-"comb1 + _" = { move_window_to_workspace = 7 }
-"comb1 + ç" = { move_window_to_workspace = 8 }
-"comb1 + à" = { move_window_to_workspace = 9 }
+"Ctrl + Shift + &" = { move_window_to_workspace = 0 }
+"Ctrl + Shift + é" = { move_window_to_workspace = 1 }
+"Ctrl + Shift + \"" = { move_window_to_workspace = 2 }
+"Ctrl + Shift + '" = { move_window_to_workspace = 3 }
+"Ctrl + Shift + (" = { move_window_to_workspace = 4 }
+"Ctrl + Shift + -" = { move_window_to_workspace = 5 }
+"Ctrl + Shift + è" = { move_window_to_workspace = 6 }
+"Ctrl + Shift + _" = { move_window_to_workspace = 7 }
+"Ctrl + Shift + ç" = { move_window_to_workspace = 8 }
+"Ctrl + Shift + à" = { move_window_to_workspace = 9 }
 
 "Alt + Tab" = "switch_to_last_workspace"
 "comb1 + Tab" = { move_workspace_to_display = { selector = "right", wrap_around = true } }
@@ -583,9 +584,8 @@ comb1 = "Alt + Shift"
 "comb1 + Ctrl + Space" = "toggle_focus_floating" # briefly bring focus to floating window
 
 # smartly resize windows
-# On AZERTY, Minus is the 6 key, already used by Alt + Shift to move windows to workspace 6
-"Alt + Ctrl + Equal" = "resize_window_grow"
-"Alt + Ctrl + Minus" = "resize_window_shrink"
+"Alt + Shift + Equal" = "resize_window_grow"
+"Alt + Shift + Minus" = "resize_window_shrink"
 # Example vertical bindings for windows stacked in a scrolling-layout column:
 # "Alt + Ctrl + Equal" = { resize_window_grow = "vertical" }
 # "Alt + Ctrl + Minus" = { resize_window_shrink = "vertical" }
