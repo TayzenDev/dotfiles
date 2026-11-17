@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Resume Claude Code sessions after a tmux-resurrect restore (resurrect only restores the screen).
+# The id comes from the @claude-session pane option, set by ~/.claude/hooks/tmux-session-id.sh.
+# Usage: claude-sessions save|restore (resurrect post-save-all / post-restore-all hooks)
+
+dir="$(tmux show -gqv @resurrect-dir)"
+dir="${dir:-$HOME/.tmux/resurrect}"
+dir="${dir/#\~/$HOME}"
+file="$dir/claude-sessions.txt"
+
+case "$1" in
+  save)
+    # Only panes still running claude: the option outlives claude when it exits to the shell.
+    # The native binary is named after its version (see window-name).
+    tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index}	#{@claude-session}	#{pane_current_command}' |
+      awk -F '\t' '$2 != "" && ($3 == "claude" || $3 ~ /^[0-9]+\.[0-9]+\.[0-9]+$/) { print $1 "\t" $2 }' \
+        >"$file.tmp" && mv "$file.tmp" "$file"
+    ;;
+  restore)
+    [ -f "$file" ] || exit 0
+    # Typed into the restored shell, so quitting claude leaves a shell as before
+    while IFS=$'\t' read -r target id; do
+      tmux send-keys -t "$target" "claude --resume $id" Enter 2>/dev/null
+    done <"$file"
+    ;;
+esac
