@@ -23,9 +23,9 @@ default_disable = false
 # - mouse_follows_focus: when focus changes, move the mouse to the focused window
 # - mouse_hides_on_focus: hide the mouse cursor after focusing a window
 # 	(this only works with mouse_follows_focus=true)
-focus_follows_mouse = true
+focus_follows_mouse = false   # AeroSpace parity: no focus on hover
 mouse_follows_focus = true
-mouse_hides_on_focus = true
+mouse_hides_on_focus = false  # AeroSpace never hid the cursor
 # Treat displays stacked in macOS as a horizontal mouse crossing chain when
 # they are physically side-by-side. At a left/right edge, the cursor enters
 # the logical neighbor at the same vertical offset, if that point exists.
@@ -65,7 +65,8 @@ auto_focus_blacklist = []
 #   "rift-cli subscribe cli --event windows_changed --command sh --args -c --args 'sketchybar --trigger rift_windows_changed RIFT_WORKSPACE_NAME=\"$RIFT_WORKSPACE_NAME\" RIFT_WINDOW_COUNT=\"$RIFT_WINDOW_COUNT\"'"
 # ]
 
-run_on_start = []
+# rift draws no window border of its own: keep JankyBorders, as AeroSpace started it
+run_on_start = ["/opt/homebrew/bin/borders active_color=0xffe1e3e4 width=5.0"]
 
 # Hot Reloading
 # - If true, rift will watch the config file for changes and reload automatically.

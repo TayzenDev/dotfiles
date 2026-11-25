@@ -139,6 +139,7 @@ cask bruno
 cask claude
 cask claude-code
 cask discord
+cask font-caskaydia-cove-nerd-font
 cask ghostty
 cask lm-studio
 cask orbstack
@@ -149,6 +150,9 @@ cask zulu@17
 
 tap acsandmann/tap
 brew rift
+
+tap felixkratz/formulae
+brew borders
 
 tap joshmedeski/sesh
 

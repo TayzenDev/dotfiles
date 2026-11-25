@@ -1,4 +1,7 @@
 theme = Pale Night Hc
+font-family = "CaskaydiaCove Nerd Font Mono"
+background-opacity = 0.9
+background-blur = true
 
 # Always start in tmux: most recent session, else create "default" (~/scripts/tm)
 command = shell:~/scripts/tm
